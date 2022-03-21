@@ -24,6 +24,7 @@
       "impliedStrict": true
     }
   },
+  "ignorePatterns": ["**/regression/index.js"],
   "rules": {
     "import": 0,
     "max-len": 0,
@@ -69,6 +70,7 @@
         "trailingComma": "none",
         "tabWidth": 2
       }
-    ]
+    ],
+    "import/no-unresolved" : 0
   }
 }
