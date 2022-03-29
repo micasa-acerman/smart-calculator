@@ -22,13 +22,14 @@ export default function RegressionPage() {
   const [fOutput, setFOutput] = useState('1 2 3');
   const [eps, setEps] = useState(4);
   const [alpha, setAlpha] = useState(0.05);
+  const [duration, setDuration] = useState(null);
   const [result, setResult] = useState(null);
 
   return (
     <Page title="МНК и регрессионный анализ">
       <Container maxWidth="xl">
         <Box sx={{ pb: 5 }}>
-          <Typography variant="h4">МНК и регрессионный анализ Онлайн</Typography>
+          <Typography variant="h2">МНК и регрессионный анализ Онлайн</Typography>
           <Typography variant="p">
             Данный онлайн-сервис позволяет найти с помощью метода наименьших квадратов уравнения
             линейной, квадратичной, гиперболической, степенной, логарифмической, показательной,
@@ -99,9 +100,17 @@ export default function RegressionPage() {
               </Alert>
             </Grid>
           )}
+          {duration && <div>Время вычисления: {duration}</div>}
           <Grid item md={12}>
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
-              <Button onClick={() => setResult(LinReg(fInput, fOutput, eps, alpha))}>
+              <Button
+                onClick={() => {
+                  const date1 = new Date();
+                  setResult(LinReg(fInput, fOutput, eps, alpha));
+                  const date2 = new Date();
+                  setDuration(date2 - date1);
+                }}
+              >
                 Линейная
               </Button>
               <Button onClick={() => setResult(KvadReg(fInput, fOutput, eps, alpha))}>

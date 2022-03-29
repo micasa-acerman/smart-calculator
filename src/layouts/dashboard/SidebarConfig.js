@@ -20,6 +20,16 @@ const sidebarConfig = [
     title: 'Монте-Карло',
     path: '/dashboard/monte-carlo',
     icon: getIcon('eva:shopping-bag-fill')
+  },
+  {
+    title: 'Оптимальное УД ЭВМ',
+    path: '/dashboard/optimization-ram',
+    icon: getIcon('eva:pie-chart-2-fill')
+  },
+  {
+    title: 'Оптимизация аренды ТС',
+    path: '/dashboard/optimization-ts',
+    icon: getIcon('eva:pie-chart-2-fill')
   }
 ];
 

@@ -45,7 +45,6 @@ function LatexMatrix(A, type) {
 }
 
 function Determinant(A) {
-  // Используется алгоритм Барейса, сложность O(n^3)
   const N = A.length;
   const B = [];
   let denom = 1;

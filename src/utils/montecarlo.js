@@ -49,23 +49,27 @@ export const calculateFunctionExtremum = (fun, variablesLimit, eps) => {
   return [vars, record];
 };
 
-export const calculateIntegral = (fun, variablesLimit, iterations, ylimit) => {
+export const calculateIntegral = (fun, variablesLimit, eps) => {
+  let diff = null;
+  let record = null;
   let vars = null;
-  const square =
-    variablesLimit.map(({ min, max }) => max - min).reduce((partialSum, a) => partialSum * a, 1) *
-    (ylimit.max - ylimit.min);
-  let k = 0;
-  for (let i = 0; i < iterations; i += 1) {
-    let nfun = fun;
-    vars = randomVariableValues([...variablesLimit, ylimit]);
-    vars.forEach((v, index) => {
-      nfun = nfun.replaceAll(getVariableNameByIndex(index), `(${v})`);
-    });
-    const r = eval(nfun);
-    if (r >= vars[vars.length - 1]) k += 1;
+  const space = variablesLimit.map((v) => v.max - v.min).reduce((ac, item) => ac * item, 1);
+  const points = [];
+  while (diff === null || diff > eps) {
+    for (let i = 0; i < 4; i += 1) {
+      vars = randomVariableValues(variablesLimit);
+      let nfun = fun;
+      // eslint-disable-next-line no-loop-func
+      vars.forEach((v, index) => (nfun = nfun.replaceAll(getVariableNameByIndex(index), `(${v})`)));
+      const res = eval(nfun);
+      points.push(res);
+    }
+    const I = (space / points.length) * points.reduce((ac, item) => ac + item, 0);
+    diff = Math.abs(record - I);
+    if (record === null) record = I;
+    else record = I;
   }
-  const p = k / iterations;
-  return square * p;
+  return [vars, record];
 };
 
 const randomVariableValues = (variablesLimit) =>

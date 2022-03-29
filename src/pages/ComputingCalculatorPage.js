@@ -1,5 +1,4 @@
 import { Alert, Button, Container, Grid, Tab, Tabs, TextField, Typography } from '@mui/material';
-import { Box } from '@mui/system';
 import { useState } from 'react';
 import VariablesManager from 'src/components/VariablesManager';
 import { Formik, Field, Form } from 'formik';
@@ -23,13 +22,8 @@ export default function ComputingCalculatorPage() {
     try {
       switch (tab) {
         case 'one': {
-          const result = calculateIntegral(
-            values.function,
-            values.variables,
-            values.iterations,
-            values.integralLimit
-          );
-          setResult(`Результат: ${result.toFixed(4)}`);
+          const result = calculateIntegral(values.function, values.variables, values.eps);
+          setResult(`Результат: ${result[1].toFixed(4)}`);
           break;
         }
         case 'two': {
@@ -70,16 +64,14 @@ export default function ComputingCalculatorPage() {
         <Tabs value={tab} onChange={handleChange} aria-label="wrapped label tabs example">
           <Tab value="one" label="Кратные определенные интегралы" wrapped />
           <Tab value="two" label="Экстремум функций" />
-          <Tab value="three" label="Корни функции" />
+          <Tab value="three" label="Корни уравнения" />
         </Tabs>
         <Formik
           onSubmit={handleSubmit}
           initialValues={{
             variables: [{ min: 0, max: 2 }],
             eps: 0.01,
-            function: 'x1*Math.exp(-x1)',
-            iterations: 1000,
-            integralLimit: { min: 0, max: 0.4 }
+            function: 'x1*Math.exp(-x1)'
           }}
         >
           <Form>
@@ -89,41 +81,9 @@ export default function ComputingCalculatorPage() {
                   <Field name="function">
                     {({ field }) => <TextField sx={{ my: 2 }} label="Функция" {...field} />}
                   </Field>
-                  {tab === 'one' ? (
-                    <>
-                      <Field name="iterations">
-                        {({ field }) => <TextField sx={{ my: 2 }} label="Итераций" {...field} />}
-                      </Field>
-                      <Grid container>
-                        <Grid item md={6}>
-                          <Field name="integralLimit.min">
-                            {({ field }) => (
-                              <TextField
-                                sx={{ my: 2 }}
-                                label="Мин значение подынтегральной функции"
-                                {...field}
-                              />
-                            )}
-                          </Field>
-                        </Grid>
-                        <Grid item md={6}>
-                          <Field name="integralLimit.max">
-                            {({ field }) => (
-                              <TextField
-                                sx={{ my: 2 }}
-                                label="Мин значение подынтегральной функции"
-                                {...field}
-                              />
-                            )}
-                          </Field>
-                        </Grid>
-                      </Grid>
-                    </>
-                  ) : (
-                    <Field name="eps">
-                      {({ field }) => <TextField sx={{ my: 2 }} label="Погрешность" {...field} />}
-                    </Field>
-                  )}
+                  <Field name="eps">
+                    {({ field }) => <TextField sx={{ my: 2 }} label="Погрешность" {...field} />}
+                  </Field>
                   {result && (
                     <Alert sx={{ my: 2 }} severity="success">
                       {result}
