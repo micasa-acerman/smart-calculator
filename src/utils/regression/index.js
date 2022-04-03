@@ -199,10 +199,10 @@ export function LinReg(strX, strY, eps = 4, alpha = 0.05) {
     alert('Минимум пар X-Y должно быть 3.');
     return false;
   }
-  if (nn > 100) {
-    alert('Неболее 100 пар X-Y должно быть.');
-    return false;
-  }
+  // if (nn > 100) {
+  //   alert('Неболее 100 пар X-Y должно быть.');
+  //   return false;
+  // }
 
   for (i = 0; i < nn; i++) {
     numX[i] = 1 * numX[i];
@@ -408,10 +408,6 @@ export function GiperReg(strX, strY, eps = 4, alpha = 0.05) {
     alert('Минимум пар X-Y должно быть 3.');
     return false;
   }
-  if (nn > 100) {
-    alert('Не более 100 пар X-Y должно быть.');
-    return false;
-  }
   for (i = 0; i < nn; i++) {
     numX[i] = 1 * numX[i];
     if (numX[i] == 0) {
@@ -534,10 +530,6 @@ export function PokazReg(strX, strY, eps = 4, alpha = 0.05) {
     alert('Минимум пар X-Y должно быть 3.');
     return false;
   }
-  if (nn > 100) {
-    alert('Не более 100 пар X-Y должно быть.');
-    return false;
-  }
   for (i = 0; i < nn; i++) {
     numY[i] = 1 * numY[i];
     if (numY[i] < 0) {
@@ -653,10 +645,6 @@ export function ExpReg(strX, strY, eps = 4, alpha = 0.05) {
   }
   if (nn < 3) {
     alert('Минимум пар X-Y должно быть 3.');
-    return false;
-  }
-  if (nn > 100) {
-    alert('Не более 100 пар X-Y должно быть.');
     return false;
   }
   for (i = 0; i < nn; i++) {
@@ -783,10 +771,6 @@ export function KvadReg(strX, strY, eps = 4, alpha = 0.05) {
   }
   if (nn < 3) {
     alert('Минимум пар X-Y должно быть 3.');
-    return false;
-  }
-  if (nn > 100) {
-    alert('Не более 100 пар X-Y должно быть.');
     return false;
   }
 
@@ -924,10 +908,6 @@ export function StepenReg(strX, strY, eps = 4, alpha = 0.05) {
   }
   if (nn < 3) {
     alert('Минимум пар X-Y должно быть 3.');
-    return false;
-  }
-  if (nn > 100) {
-    alert('Не более 100 пар X-Y должно быть.');
     return false;
   }
   for (i = 0; i < nn; i++) {

@@ -31,14 +31,11 @@ export const calculateFunctionExtremum = (fun, variablesLimit, eps) => {
   let vars = null;
   while (diff === null || diff > eps) {
     vars = randomVariableValues(variablesLimit);
-    let [left, right] = fun.split('=');
+    let exp = fun;
     vars.forEach((v, index) => {
-      left = left.replaceAll(getVariableNameByIndex(index), `(${v})`);
-      right = right.replaceAll(getVariableNameByIndex(index), `(${v})`);
+      exp = exp.replaceAll(getVariableNameByIndex(index), `(${v})`);
     });
-    const lResult = eval(left);
-    const rResult = eval(right);
-    const result = lResult - rResult;
+    const result = eval(exp);
     if (record === null || Math.abs(result) > Math.abs(record)) {
       if (record !== null) {
         diff = Math.abs(Math.abs(result) - Math.abs(record));

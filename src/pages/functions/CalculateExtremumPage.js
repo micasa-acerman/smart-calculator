@@ -3,8 +3,32 @@ import { Field, Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import Page from 'src/components/Page';
 import VariablesManager from 'src/components/VariablesManager';
-import { calculateIntegral } from 'src/utils/montecarlo';
+import { calculateFunctionExtremum, calculateIntegral } from 'src/utils/montecarlo';
 
+// eslint-disable-next-line no-unused-vars
+function testInteg() {
+  const EPS = [0.1, 0.5, 0.01, 0.05, 0.001, 0.005];
+  const result = [];
+  for (let i = 1; i < 10; i += 1) {
+    const row = [];
+    for (let j = 1; j < EPS.length; j += 1) {
+      const d = new Date();
+      calculateFunctionExtremum(
+        'x1**2',
+        [
+          {
+            min: 0,
+            max: (1 + i) * 0.5
+          }
+        ],
+        EPS[j]
+      );
+      row.push(new Date() - d);
+    }
+    result.push(row.join(';'));
+  }
+  console.log(result.join('\r\n'));
+}
 function CalculateExtremumPage() {
   const [result, setResult] = useState(null);
 

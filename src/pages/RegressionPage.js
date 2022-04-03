@@ -16,6 +16,32 @@ import { useState } from 'react';
 import { ExpReg, GiperReg, KvadReg, LinReg, PokazReg, StepenReg } from '../utils/regression';
 import Page from '../components/Page';
 
+function genPoints(x) {
+  const result = [];
+  for (let i = 0; i < x; i += 1) {
+    result.push(Math.floor(Math.random() * 100) + 1);
+  }
+  return result.join(' ');
+}
+
+// eslint-disable-next-line no-unused-vars
+function testReg() {
+  const FUNCS = [LinReg, StepenReg, PokazReg, ExpReg, GiperReg, KvadReg];
+  const result = ['LinReg;StepenReg;PokazReg;ExpReg;GiperReg;KvadReg'];
+  for (let i = 1; i < 10; i += 1) {
+    const row = [];
+    for (let j = 0; j < FUNCS.length; j += 1) {
+      const x = genPoints(i * 100000);
+      const y = genPoints(i * 100000);
+      const d = new Date();
+      FUNCS[j](x, y, 4, 0.01);
+      row.push(new Date() - d);
+    }
+    result.push(`${row.join(';')}`);
+  }
+  console.log(result.join('\r\n'));
+}
+
 export default function RegressionPage() {
   const [fInput, setFInput] = useState('1 2 3');
   const [fOutput, setFOutput] = useState('1 2 3');

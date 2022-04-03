@@ -8,7 +8,6 @@ import { getVariableNameByIndex } from 'src/utils/variables';
 
 function CalculateIntegralPage() {
   const [result, setResult] = useState(null);
-
   const handleSubmit = (values) => {
     const result = calculateFunctionExtremum(values.function, values.variables, values.eps);
     const countDigits = `${values.eps}`.split('.')[1].length + 1;

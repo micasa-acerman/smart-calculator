@@ -18,10 +18,28 @@ import { useState } from 'react';
 import Page from '../components/Page';
 import Iconify from '../components/Iconify';
 
+function genPoints(x) {
+  const result = [];
+  for (let i = 0; i < x; i += 1) {
+    result.push(Math.floor(Math.random() * 10) + 1);
+  }
+  return result.join('+');
+}
+
+// eslint-disable-next-line no-unused-vars
+function testCalc() {
+  const row = [];
+  for (let j = 1; j < 10; j += 1) {
+    const x = genPoints(j * 1000000);
+    const d = new Date();
+    eval(x);
+    row.push(new Date() - d);
+  }
+  console.log(row.join('\r\n'));
+}
 export default function CalculatorPage() {
   const [expression, setExpression] = useState('');
   const [result, setResult] = useState('');
-
   return (
     <Page title="Калькулятор">
       <Container>
