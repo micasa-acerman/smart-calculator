@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, FormGroup, TextField, Typography } from '@mui/material';
+import { Button, ButtonGroup, FormGroup, Grid, TextField, Typography } from '@mui/material';
 import { Field, FieldArray } from 'formik';
 import React from 'react';
 
@@ -17,34 +17,49 @@ function TransportDefinitionManager() {
               <Button onClick={() => pop()}>Убрать</Button>
             </ButtonGroup>
           </FormGroup>
-          {values.variables.map((item, index) => (
-            <Box key={index} sx={{ m: 1 }}>
-              <Field name={`variables.${index}.c`}>
-                {({ field }) => (
-                  <TextField
-                    sx={{ mr: 1 }}
-                    label={`Стоимость единицы времени эксплуатации ${index + 1}`}
-                    value={item}
-                    {...field}
-                  />
-                )}
-              </Field>
-              <Field key={index} name={`variables.${index}.t`}>
-                {({ field }) => (
-                  <TextField
-                    label={`Время, затрачиваемое ТС ${index + 1}`}
-                    value={item}
-                    {...field}
-                  />
-                )}
-              </Field>
-              <Field key={index} name={`variables.${index}.m`}>
-                {({ field }) => (
-                  <TextField label={`грузоподъемность ТС ${index + 1}`} value={item} {...field} />
-                )}
-              </Field>
-            </Box>
-          ))}
+          <Grid container spacing={1}>
+            {values.variables.map((item, index) => (
+              <React.Fragment key={index}>
+                <Grid key={index} item xs={12} md={4}>
+                  <Field name={`variables.${index}.c`}>
+                    {({ field }) => (
+                      <TextField
+                        sx={{ mr: 1 }}
+                        fullWidth
+                        label={`Стоимость единицы времени эксплуатации ${index + 1}`}
+                        value={item}
+                        {...field}
+                      />
+                    )}
+                  </Field>
+                </Grid>
+                <Grid item key={index} xs={12} md={4}>
+                  <Field key={index} name={`variables.${index}.t`}>
+                    {({ field }) => (
+                      <TextField
+                        fullWidth
+                        label={`Время, затрачиваемое ТС ${index + 1}`}
+                        value={item}
+                        {...field}
+                      />
+                    )}
+                  </Field>
+                </Grid>
+                <Grid key={index} item xs={12} md={4}>
+                  <Field key={index} name={`variables.${index}.m`}>
+                    {({ field }) => (
+                      <TextField
+                        fullWidth
+                        label={`грузоподъемность ТС ${index + 1}`}
+                        value={item}
+                        {...field}
+                      />
+                    )}
+                  </Field>
+                </Grid>
+              </React.Fragment>
+            ))}
+          </Grid>
         </>
       )}
     />

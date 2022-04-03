@@ -36,7 +36,7 @@
   -webkit-backface-visibility: hidden;
   transition: transform 0.5s ease;
   border-radius: 10px;
-  background: linear-gradient(#00ab55, #007b55);
+  background-color: #34495e;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -55,5 +55,26 @@
 
 .back {
   transform: perspective(600px) rotateY(180deg);
-  padding: 12px
+  padding: 12px;
+}
+
+.cardContainerBackend .front,
+.cardContainerBackend .back {
+  /* background: linear-gradient(#0e6aa3, #2377aa); */
+  background: #2c3e50;
+}
+.cardContainerFrontend .front,
+.cardContainerFrontend .back {
+  /* background: linear-gradient(#00ab55, #007b55); */
+  background: #2c3e50;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+  padding: 0.3em;
+  border-bottom-left-radius: 0.3em;
 }

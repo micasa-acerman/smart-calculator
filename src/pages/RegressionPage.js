@@ -4,14 +4,13 @@ import {
   Container,
   Typography,
   Button,
-  Alert,
-  AlertTitle,
   ButtonGroup,
   TextField,
   Select,
   MenuItem,
   FormControl,
-  InputLabel
+  InputLabel,
+  useMediaQuery
 } from '@mui/material';
 import { useState } from 'react';
 import { ExpReg, GiperReg, KvadReg, LinReg, PokazReg, StepenReg } from '../utils/regression';
@@ -22,8 +21,8 @@ export default function RegressionPage() {
   const [fOutput, setFOutput] = useState('1 2 3');
   const [eps, setEps] = useState(4);
   const [alpha, setAlpha] = useState(0.05);
-  const [duration, setDuration] = useState(null);
   const [result, setResult] = useState(null);
+  const isMobileMatch = useMediaQuery('(max-width:600px)');
 
   return (
     <Page title="МНК и регрессионный анализ">
@@ -37,27 +36,29 @@ export default function RegressionPage() {
           </Typography>
         </Box>
         <Grid container spacing={3}>
-          <Grid item md={12} />
-          <Grid item md={12} columnSpacing={3}>
+          <Grid item md={6} xs={12}>
             <TextField
-              sx={{ mr: 2 }}
               label="X"
+              fullWidth
               value={fInput}
               onChange={(e) => setFInput(e.target.value)}
             />
+          </Grid>
+
+          <Grid item md={6} xs={12}>
             <TextField
-              sx={{ mr: 2 }}
+              fullWidth
               label="Y"
               value={fOutput}
               onChange={(e) => setFOutput(e.target.value)}
             />
-
-            <FormControl>
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <FormControl fullWidth>
               <InputLabel id="select-eps">Огруглять до</InputLabel>
               <Select
                 labelId="select-eps"
                 value={eps}
-                sx={{ mr: 2, width: 200 }}
                 label="Огруглять до"
                 onChange={(event) => setEps(event.target.value)}
               >
@@ -71,13 +72,14 @@ export default function RegressionPage() {
                 <MenuItem value={8}>8</MenuItem>
               </Select>
             </FormControl>
-            <FormControl>
+          </Grid>
+          <Grid item md={6} xs={12}>
+            <FormControl fullWidth>
               <InputLabel id="select-alpha">Уровень значимости</InputLabel>
               <Select
                 labelId="select-alpha"
                 value={alpha}
                 label="Уровень значимости"
-                sx={{ width: 200 }}
                 onChange={(event) => setAlpha(event.target.value)}
               >
                 <MenuItem value={0.001}>0.001</MenuItem>
@@ -92,31 +94,41 @@ export default function RegressionPage() {
             </FormControl>
           </Grid>
 
-          <Grid item md={12}>
-            <ButtonGroup variant="contained" aria-label="outlined primary button group">
+          <Grid item xs={12}>
+            <ButtonGroup
+              variant="contained"
+              aria-label="outlined primary button group"
+              orientation={isMobileMatch ? 'vertical' : 'horizontal'}
+              fullWidth
+            >
               <Button
                 onClick={() => {
-                  const date1 = new Date();
                   setResult(LinReg(fInput, fOutput, eps, alpha));
-                  const date2 = new Date();
-                  setDuration(date2 - date1);
                 }}
+                size="large"
               >
                 Линейная
               </Button>
-              <Button onClick={() => setResult(KvadReg(fInput, fOutput, eps, alpha))}>
+              <Button onClick={() => setResult(KvadReg(fInput, fOutput, eps, alpha))} size="large">
                 Квадратичная
               </Button>
-              <Button onClick={() => setResult(StepenReg(fInput, fOutput, eps, alpha))}>
+              <Button
+                onClick={() => setResult(StepenReg(fInput, fOutput, eps, alpha))}
+                size="large"
+              >
                 Степенная
               </Button>
-              <Button onClick={() => setResult(GiperReg(fInput, fOutput, eps, alpha))}>
+              <Button onClick={() => setResult(GiperReg(fInput, fOutput, eps, alpha))} size="large">
                 Гиперболическая
               </Button>
-              <Button onClick={() => setResult(PokazReg(fInput, fOutput, eps, alpha))}>
+              <Button onClick={() => setResult(PokazReg(fInput, fOutput, eps, alpha))} size="large">
                 Показательная
               </Button>
-              <Button onClick={() => setResult(ExpReg(fInput, fOutput, eps, alpha))}>
+              <Button
+                fullWidth
+                onClick={() => setResult(ExpReg(fInput, fOutput, eps, alpha))}
+                size="large"
+              >
                 Экспоненциальная
               </Button>
             </ButtonGroup>
@@ -124,11 +136,6 @@ export default function RegressionPage() {
 
           {result && (
             <Grid item md={12}>
-              {duration && (
-                <div>
-                  <strong>Время вычисления:</strong> {duration}
-                </div>
-              )}
               {result}
             </Grid>
           )}

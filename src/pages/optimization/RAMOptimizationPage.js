@@ -1,4 +1,4 @@
-import { Alert, Button, Container, FormControl, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import { Field, Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import Page from 'src/components/Page';
@@ -54,21 +54,26 @@ function RAMOptimizationPage() {
           }}
         >
           <Form>
-            <FormControl>
-              <Field name="v">
-                {({ field }) => (
-                  <TextField
-                    sx={{ mr: 1, mb: 2 }}
-                    label="Общий объем оперативной памяти"
-                    {...field}
-                  />
-                )}
-              </Field>
-              <Button variant="contained" type="submit">
-                Рассчитать
-              </Button>
-              {result && <Alert severity="success">{result}</Alert>}
-            </FormControl>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <Field name="v">
+                  {({ field }) => (
+                    <TextField
+                      sx={{ mr: 1, mb: 2 }}
+                      fullWidth
+                      label="Общий объем оперативной памяти"
+                      {...field}
+                    />
+                  )}
+                </Field>
+                <Button fullWidth variant="contained" type="submit">
+                  Рассчитать
+                </Button>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                {result && <Alert severity="success">{result}</Alert>}
+              </Grid>
+            </Grid>
             <RAMDefinitionManager />
           </Form>
         </Formik>

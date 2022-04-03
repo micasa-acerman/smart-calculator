@@ -1,57 +1,33 @@
 import { Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import Card from 'src/components/Card/Card';
-import Graph from 'src/components/Graph';
 
 const CARDS = [
   {
-    link: '/dashboard/mnk',
-    front: <h2>Регрессионный анализ</h2>,
-    back: <Typography>Регрессионный анализ методом МНК</Typography>
-  },
-  {
-    link: '/dashboard/calculator',
-    front: <h2>Универсальный калькулятор</h2>,
-    back: (
-      <Typography>
-        Позволяет рассчитывать математические выражения. В калькуляторе можно использовать
-        тригонометрические, показательные, логарифмические функции и т.д.
-      </Typography>
-    )
-  },
-  {
-    link: '/dashboard/monte-carlo',
-    front: <h2>Решение задач приближенными методами</h2>,
-    back: (
-      <Typography>
-        Решение определенных интегралов, нахождение корня уравнения и экстремума функции методом
-        Монте-Карло.
-      </Typography>
-    )
-  },
-  {
-    link: '/dashboard/optimization-ram',
+    link: '/dashboard/optimization/ram',
     front: <h2>Оптимизация управления данными в иерархической памяти ЭВМ</h2>,
-    back: <Typography>Регрессионный анализ методом МНК</Typography>
+    back: <Typography>Регрессионный анализ методом МНК</Typography>,
+    frontend: true
   },
   {
-    link: '/dashboard/optimization-ts',
+    link: '/dashboard/optimization/ts',
     front: <h2>Управление арендой транспортных средств</h2>,
     back: (
-      <Typography>
+      <Typography component="span" variant="body2">
         Транспортная компания заключила договор на двунаправленную транспортировку продуктов между
         населенными пунктами «А» и «В» в течение некоторого периода времени, причем объем перевозок
         в этот период задан. Компания обладает возможностью арендовать парк транспортных средств.
         Требуется так организовать аренду транспортных средств, чтобы, выполнив договор,
         минимизировать транспортные издержки.
       </Typography>
-    )
+    ),
+    frontend: true
   },
   {
-    link: '/dashboard/optimization-tech',
+    link: '/dashboard/optimization/tech',
     front: <h2>Управление комплексом подсистем технической подготовки производства</h2>,
     back: (
-      <Typography>
+      <Typography component="span" variant="body2">
         Требуется создать пакет программ, реализующий ряд функций подсистемы технологической
         подготовки производства: требуется на планируемый отрезок времени сформировать:
         <ul>
@@ -66,30 +42,26 @@ const CARDS = [
         В приводимой ниже формальной постановке задачи используются следующие обозначения и
         определения:
       </Typography>
-    )
-  },
-  {
-    href: 'http://calculator2.composite-methods.ru/Differential',
-    front: <h2>Решение обыкновенных дифференциальных уравнений</h2>,
-    back: <Typography>Решение обыкновенных дифференциальных уравнений</Typography>
+    ),
+    frontend: true
   }
 ];
 
-function MainPage() {
+function OptimizationNavigation() {
   return (
     <Container>
       <Grid container>
-        <Grid xs="12">
+        <Grid item xs={12}>
           <Typography variant="h1" gutterBottom textAlign="center">
-            Навигационная панель
+            Оптимизация технологических процессов
           </Typography>
         </Grid>
         {CARDS.map((props) => (
-          <Card key={props.link} {...props} />
+          <Card key={props.link || props.href} {...props} />
         ))}
       </Grid>
     </Container>
   );
 }
 
-export default MainPage;
+export default OptimizationNavigation;
