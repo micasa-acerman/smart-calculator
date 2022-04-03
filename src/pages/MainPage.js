@@ -1,6 +1,7 @@
 import { Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import Card from 'src/components/Card/Card';
+import Graph from 'src/components/Graph';
 
 const CARDS = [
   {

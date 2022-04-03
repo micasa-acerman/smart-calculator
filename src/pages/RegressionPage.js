@@ -92,15 +92,6 @@ export default function RegressionPage() {
             </FormControl>
           </Grid>
 
-          {result && (
-            <Grid item md={12}>
-              <Alert severity="success">
-                <AlertTitle>Результат</AlertTitle>
-                {result}
-              </Alert>
-            </Grid>
-          )}
-          {duration && <div>Время вычисления: {duration}</div>}
           <Grid item md={12}>
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
               <Button
@@ -130,6 +121,17 @@ export default function RegressionPage() {
               </Button>
             </ButtonGroup>
           </Grid>
+
+          {result && (
+            <Grid item md={12}>
+              {duration && (
+                <div>
+                  <strong>Время вычисления:</strong> {duration}
+                </div>
+              )}
+              {result}
+            </Grid>
+          )}
         </Grid>
       </Container>
     </Page>
