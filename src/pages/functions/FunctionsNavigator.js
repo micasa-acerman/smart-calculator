@@ -10,19 +10,19 @@ const CARDS = [
     frontend: true
   },
   {
-    href: 'http://calculator2.composite-methods.ru/Extremum',
+    href: 'http://back.calc-skgmi.ru/Extremum',
     front: <h2>Поиск экстремума методом Монте-Карло</h2>,
     back: <Typography>Поиск экстремума методом Монте-Карло</Typography>,
     backend: true
   },
   {
-    href: 'http://calculator2.composite-methods.ru/Extremum',
+    href: 'http://back.calc-skgmi.ru/Extremum',
     front: <h2>Поиск экстремума методом градиентного спуска</h2>,
     back: <Typography>Поиск экстремума методом градиентного спуска</Typography>,
     backend: true
   },
   {
-    href: 'http://calculator2.composite-methods.ru/Extremum',
+    href: 'http://back.calc-skgmi.ru/Extremum',
     front: <h2>Поиск экстремума методом градиентного дихотомии</h2>,
     back: <Typography>Поиск экстремума методом градиентного дихотомии</Typography>,
     backend: true

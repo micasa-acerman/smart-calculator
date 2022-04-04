@@ -10,25 +10,25 @@ const CARDS = [
     frontend: true
   },
   {
-    href: 'http://calculator2.composite-methods.ru/Integrals',
+    href: 'http://back.calc-skgmi.ru/Integrals',
     front: <h2>Решение простых интегралов методом прямоугольников</h2>,
     back: <Typography>Решение простых интегралов методом прямоугольников</Typography>,
     backend: true
   },
   {
-    href: 'http://calculator2.composite-methods.ru/Integrals',
+    href: 'http://back.calc-skgmi.ru/Integrals',
     front: <h2>Решение простых интегралов методом трапеций</h2>,
     back: <Typography>Решение простых интегралов методом трапеций</Typography>,
     backend: true
   },
   {
-    href: 'http://calculator2.composite-methods.ru/Integrals',
+    href: 'http://back.calc-skgmi.ru/Integrals',
     front: <h2>Решение простых интегралов методом Гаусса</h2>,
     back: <Typography>Решение простых интегралов методом Гаусса</Typography>,
     backend: true
   },
   {
-    href: 'http://calculator2.composite-methods.ru/Integrals',
+    href: 'http://back.calc-skgmi.ru/Integrals',
     front: <h2>Решение простых интегралов методом Симпсона</h2>,
     back: <Typography>Решение простых интегралов методом Симпсона</Typography>,
     backend: true
