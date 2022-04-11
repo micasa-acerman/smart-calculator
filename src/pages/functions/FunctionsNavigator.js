@@ -5,8 +5,10 @@ import Card from 'src/components/Card/Card';
 const CARDS = [
   {
     link: '/dashboard/functions/extremum/monte-carlo',
-    front: <h2>Кратные интегралы методом Монте-Карло</h2>,
-    back: <Typography>Кратные интегралы методом Монте-Карло</Typography>,
+    front: <h2>Нахождение экстремума ф-ции нескольких переменных методом Монте-Карло</h2>,
+    back: (
+      <Typography>Нахождение экстремума ф-ции нескольких переменных методом Монте-Карло</Typography>
+    ),
     frontend: true
   },
   {

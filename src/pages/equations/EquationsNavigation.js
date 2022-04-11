@@ -12,19 +12,19 @@ const CARDS = [
     frontend: true
   },
   {
-    href: 'http://back.calc-skgmi.ru/Extremum',
-    front: <h2>Вычисление корня ур-ния одной переменной (метод Хорд)</h2>,
-    back: <Typography>Вычисление корня ур-ния одной переменной (метод Хорд)</Typography>,
+    href: 'http://back.calc-skgmi.ru/EquationRoot',
+    front: <h2>Вычисление корня ур-ния одной переменной (метод хорд)</h2>,
+    back: <Typography>Вычисление корня ур-ния одной переменной (метод хорд)</Typography>,
     backend: true
   },
   {
-    href: 'http://back.calc-skgmi.ru/Extremum',
+    href: 'http://back.calc-skgmi.ru/EquationRoot',
     front: <h2>Вычисление корня ур-ния одной переменной (метод касательных)</h2>,
     back: <Typography>Вычисление корня ур-ния одной переменной (метод касательных)</Typography>,
     backend: true
   },
   {
-    href: 'http://back.calc-skgmi.ru/Extremum',
+    href: 'http://back.calc-skgmi.ru/EquationRoot',
     front: (
       <h2>
         Вычисление корня ур-ния одной переменной (метод Комбинированный метод хорд и касательных )

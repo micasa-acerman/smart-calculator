@@ -10,27 +10,31 @@ function CalculateEquationsRootPage() {
   const [result, setResult] = useState(null);
 
   const handleSubmit = (values) => {
+    if (values.function.replaceAll('=', '').length + 1 !== values.function.length) {
+      alert("В уравнении должен присутствовать символ '='");
+      return;
+    }
     const result = calculateFunctionRoot(values.function, values.variables, values.eps);
     const countDigits = `${values.eps}`.split('.')[1].length + 1;
     setResult(
       `Значение переменных: ${result[0].map(
         (v, i) => `${getVariableNameByIndex(i)}=${(+v).toFixed(countDigits)}`
-      )} Результат: ${result[1].toFixed(countDigits)}`
+      )} Отклонение: ${result[1].toFixed(countDigits)}`
     );
   };
 
   return (
-    <Page title="Нахождение экстремума ф-ции методом Монте-Карло">
+    <Page title="Вычисление корня ур-ния нескольких переменных">
       <Container>
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Нахождение экстремума ф-ции методом Монте-Карло
+          Вычисление корня ур-ния нескольких переменных
         </Typography>
         <Formik
           onSubmit={handleSubmit}
           initialValues={{
             variables: [{ min: 0, max: 2 }],
             eps: 0.01,
-            function: 'x1*Math.exp(-x1)'
+            function: 'x1**3=8'
           }}
         >
           <Form>

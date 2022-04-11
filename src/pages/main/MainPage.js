@@ -1,19 +1,28 @@
 import { Alert, AlertTitle, Container, Grid, Typography } from '@mui/material';
 import React from 'react';
+import { Box } from '@mui/system';
 import MainNavigation from './MainNavigation';
+import LogoIcon from './skgmi.png';
+import MobileIcon from './mobile.png';
+import MobileApplication from './mobile.apk';
 import './mainPage.css';
 
 function MainPage() {
   return (
     <Container>
       <Grid container>
-        <Grid item xs={12}>
+        <Grid item xs={2}>
+          <img src={LogoIcon} alt="logo" />
+        </Grid>
+        <Grid item xs={8}>
           <Typography variant="h1" gutterBottom textAlign="center">
             Универсальный вычисляющий модуль
           </Typography>
+        </Grid>
+        <Grid item xs={12}>
           <Typography>
             Универсальный вычисляющий онлайн модуль для расчета определенных интегралов, значений
-            диф. уравнений, проведения регрессионого анализа и т.д. на работе, учёбе или дома. В
+            диф. уравнений, проведения регрессионного анализа и т.д. на работе, учёбе или дома. В
             модуле присутствует:
             <ul className="list">
               <li>
@@ -27,6 +36,23 @@ function MainPage() {
               <li>Вычисление корней уравнения приближенными методами.</li>
             </ul>
           </Typography>
+        </Grid>
+
+        <Grid sx={{ p: 2, pt: 4 }} item xs={12} sm={8} md={9}>
+          <Typography>
+            Вы можете загрузить на свое устройство универсальный вычислительный калькулятор в виде{' '}
+            <strong>мобильного приложения</strong>. Для этого скачайте мобильное приложения и
+            установите его на свое устройства (ссылка расположена правее).
+          </Typography>
+        </Grid>
+        <Grid sx={{ pt: 4, pb: 2 }} item xs={8} sm={4} md={3}>
+          <Box>
+            <a href={MobileApplication}>
+              <img src={MobileIcon} alt="Google Play" />
+            </a>
+          </Box>
+        </Grid>
+        <Grid item xs={12}>
           <Alert severity="info" sx={{ my: 2 }}>
             <AlertTitle>Информация для разработчиков</AlertTitle>
             Если у вас есть программная реализация оптимизационной задачи или любой другой, то мы

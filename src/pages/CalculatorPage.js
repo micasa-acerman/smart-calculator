@@ -56,14 +56,14 @@ export default function CalculatorPage() {
               setResult(eval(expression));
             }}
           >
-            Расчитать
+            Рассчитать
           </Button>
         </Stack>
 
         <Card>
           <Box sx={{ m: 2 }}>
             <Alert severity="info" sx={{ my: 1 }}>
-              Универсальный калькулятор. Поддерживает большое количество мат. операций. Так же вы
+              Универсальный калькулятор. Поддерживает большое количество мат. операций. Также вы
               можете использовать&nbsp;
               <Link href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math">
                 список математических функций
