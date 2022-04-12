@@ -14,6 +14,7 @@ import FunctionsNavigator from './pages/functions/FunctionsNavigator';
 import CalculateExtremumPage from './pages/functions/CalculateExtremumPage';
 import EquationsNavigation from './pages/equations/EquationsNavigation';
 import CalculateEquationsRootPage from './pages/equations/CalculateEquationsRootPage';
+import DifferentialEquationsNavigation from './pages/equations/DifferentialEquationsNavigation';
 import OptimizationNavigation from './pages/optimization/OptimizationNavigation';
 
 // ----------------------------------------------------------------------
@@ -39,7 +40,8 @@ export default function Router() {
         { path: 'functions', element: <FunctionsNavigator /> },
         { path: 'functions/extremum/monte-carlo', element: <CalculateExtremumPage /> },
         { path: 'equations', element: <EquationsNavigation /> },
-        { path: 'equations/root/monte-carlo', element: <CalculateEquationsRootPage /> }
+        { path: 'equations/root/monte-carlo', element: <CalculateEquationsRootPage /> },
+        { path: 'differential-equations', element: <DifferentialEquationsNavigation /> }
       ]
     },
     {

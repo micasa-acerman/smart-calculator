@@ -7,6 +7,7 @@ import CorporateFareOutlinedIcon from '@mui/icons-material/CorporateFareOutlined
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import FunctionsOutlinedIcon from '@mui/icons-material/FunctionsOutlined';
 import BrokenImageOutlinedIcon from '@mui/icons-material/BrokenImageOutlined';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
 const CARDS = [
   {
@@ -75,6 +76,16 @@ const CARDS = [
       </Grid>
     ),
     back: <Typography>Нахождение корней уравнения</Typography>
+  },
+  {
+    link: '/dashboard/equations',
+    front: (
+      <Grid>
+        <TrendingUpIcon style={{ fontSize: 60 }} />
+        <h2>Дифференциальные уравнения</h2>
+      </Grid>
+    ),
+    back: <Typography>Решение дифференциальных уравнений</Typography>
   }
 ];
 
