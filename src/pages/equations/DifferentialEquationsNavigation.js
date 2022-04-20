@@ -4,13 +4,13 @@ import Card from 'src/components/Card/Card';
 
 const CARDS = [
   {
-    href: 'http://back.calc-skgmi.ru/EquationRoot',
+    href: 'http://back.calc-skgmi.ru/Differential',
     front: <h2>Решение обыкновенных дифференциальных уравнений методом Эйлера</h2>,
     back: <Typography>Решение обыкновенных дифференциальных уравнений методом Эйлера</Typography>,
     backend: true
   },
   {
-    href: 'http://back.calc-skgmi.ru/EquationRoot',
+    href: 'http://back.calc-skgmi.ru/Differential',
     front: <h2>Решение обыкновенных дифференциальных уравнений методом Рунге-Кута</h2>,
     back: (
       <Typography>Решение обыкновенных дифференциальных уравнений методом Рунге-Кута</Typography>
@@ -18,7 +18,7 @@ const CARDS = [
     backend: true
   },
   {
-    href: 'http://back.calc-skgmi.ru/EquationRoot',
+    href: 'http://back.calc-skgmi.ru/Differential',
     front: <h2>Решение обыкновенных дифференциальных уравнений метод Эйлера-Коши</h2>,
     back: (
       <Typography>Решение обыкновенных дифференциальных уравнений метод Эйлера-Коши</Typography>

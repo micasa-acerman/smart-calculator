@@ -78,7 +78,7 @@ const CARDS = [
     back: <Typography>Нахождение корней уравнения</Typography>
   },
   {
-    link: '/dashboard/equations',
+    link: '/dashboard/differential-equations',
     front: (
       <Grid>
         <TrendingUpIcon style={{ fontSize: 60 }} />

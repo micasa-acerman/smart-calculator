@@ -25,8 +25,8 @@ const CARDS = [
   },
   {
     href: 'http://back.calc-skgmi.ru/Extremum',
-    front: <h2>Поиск экстремума методом градиентного дихотомии</h2>,
-    back: <Typography>Поиск экстремума методом градиентного дихотомии</Typography>,
+    front: <h2>Поиск экстремума методом дихотомии</h2>,
+    back: <Typography>Поиск экстремума методом дихотомии</Typography>,
     backend: true
   }
 ];

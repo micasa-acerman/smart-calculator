@@ -57,7 +57,7 @@ function MainPage() {
             <AlertTitle>Информация для разработчиков</AlertTitle>
             Если у вас есть программная реализация оптимизационной задачи или любой другой, то мы
             можем ее добавить на нашу платформу. По поводу предложений можете писать разработчикам
-            на адрес <a href="email:mrikaevkm@vk.com">mrikaevkm@vk.com</a>
+            на адрес <a href="email:mrikaevkm@vk.com">mrikaevkm@vk.com</a>.
           </Alert>
         </Grid>
         <MainNavigation />
