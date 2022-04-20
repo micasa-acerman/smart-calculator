@@ -4,7 +4,6 @@ import { Box } from '@mui/system';
 import MainNavigation from './MainNavigation';
 import LogoIcon from './skgmi.png';
 import MobileIcon from './mobile.png';
-import MobileApplication from './mobile.apk';
 import './mainPage.css';
 
 function MainPage() {
@@ -47,7 +46,7 @@ function MainPage() {
         </Grid>
         <Grid sx={{ pt: 4, pb: 2 }} item xs={8} sm={4} md={3}>
           <Box>
-            <a href={MobileApplication}>
+            <a href="https://disk.yandex.ru/d/jJM7YptoS0zjEA">
               <img src={MobileIcon} alt="Google Play" />
             </a>
           </Box>
