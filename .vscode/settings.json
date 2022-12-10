@@ -1,0 +1,28 @@
+{
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true,
+      "source.fixAll.prettier": true
+    },
+    "search.exclude": {
+      "": true
+    },
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    "editor.formatOnSave": false,
+    "cSpell.words": [
+      "Автосохранение",
+      "решению",
+      "dtos",
+      "econs",
+      "Formik",
+      "Mutators",
+      "Preproduction",
+      "siburkit",
+      "urljoin",
+      "VKUS"
+    ],
+    "discord.enabled": true,
+    
+}
